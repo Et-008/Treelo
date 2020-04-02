@@ -4,23 +4,19 @@ var express = require('express'),
 	cookies = require('../models/cookie.js'),
 	Board = require('../models/userBoard.js'),
 	User = require('../models/user.js');
+	// userBoardData = require('../models/userBoardData.js');
 
 router.use(bodyParser.urlencoded({extended: true}))
 
 router.get('/myBoard', function(req,res) {
 	if(req.session.userId) {
-		User.findOne({_id:req.session.userId}, (err, user) =>{
-			Board.findOne({userId:req.session.userId}, (err, boards) => {
-				if(err) {
-					console.log(err);
-				} 
-				else if(!boards) {
-					res.render('boardPage', {userBoard: false, User: user,  Cookie: true})
-				} 
-				else {
-					res.render('boardPage', {userBoard: boards, User: user, Cookie: true})
-				}
-			})
+		User.findOne({_id:req.session.userId}).populate("boards").exec((err, user) =>{
+			if(err) {
+				console.log(err);
+			}
+			else {
+				res.render('boardPage', {User: user, Cookie: true})
+			}
 		})
 	} 
 	else {
@@ -28,37 +24,54 @@ router.get('/myBoard', function(req,res) {
 	}
 })
 
+router.post('/myNewBoard', function(req, res) {
+	if(req.body.ListTitle){
+		Board.create(req.body, function(err, board) {
+			if(err) {
+				console.log(err);
+			} else {
+				console.log(board);
+				User.findOne({_id:req.session.userId}, (err, user) =>{
+					user.boards.push(board)
+					user.save(function(err){
+						if(err) {
+							console.log(err)
+						} else {
+							req.session.boardId = board._id;
+							res.redirect('/myBoard')
+						}
+					})
+				})
+			}
+		})
+	} else if(!req.body.ListTitle) {
+		res.redirect('/myBoard')
+	}
+})
+
 router.post('/myBoard', function(req, res) {
-	Board.findOne({userId:req.session.userId}, (err, board) => {
+	Board.findOne({_id:req.body.Id}, (err, board) => {
+		console.log(board);
 		if(err) {
 			console.log(err);
+			res.redirect('/myBoard', {error: err})
 		} 
 		else if(!board) {
-			var newBoard = new Board({
-				userId: req.session.userId
-			})
-			newBoard.boardList.push(req.body.boardList)
-			newBoard.save(function(err){
-				if(err) {
-					console.log(err)
-				} else {
-					req.session.boardId = newBoard._id;
-					res.redirect('/myBoard')			
-				}
-			})
-		} 
+			res.redirect('/myBoard')
+		}
 		else {
-			board.boardList.push(req.body.boardList)
+			board.boardLists.push(req.body.boardData)
 			board.save(function(err){
 				if(err) {
 					console.log(err)
 				} else {
 					req.session.boardId = board._id;
-					res.redirect('/myBoard')			
+					res.redirect('/myBoard')	
 				}
 			})
 		}
 	})
 })
+
 
 module.exports = router;

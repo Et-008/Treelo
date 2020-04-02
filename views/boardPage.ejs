@@ -21,16 +21,54 @@
 </div>
 
 <h1>Boards...</h1>
-<% if(userBoard) { %>
-	<% var List = userBoard.boardList %>
-    <% for(var i=0; i<List.length; i++) { %>
-    	<label id="<%= i %>" class="listItem"><%= List[i] %></label><br>
+<% if (error) { %>
+    <p>error</p>
+<% } %>
+<% if(User) { %>
+    <% var board = User.boards %>
+    <% if(board) { %>      
+        <% board.forEach(function(data){ %>
+
+<div class="ui card">
+  <div class="content">
+    <div class="header"><h4><%= data.ListTitle %></h4></div>
+  </div>
+  <div class="content">
+    <div class="ui small feed">
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+                <% console.log(data.boardLists) %>
+                <% var List = data.boardLists %>
+                  <% for(var i=0; i<List.length; i++) { %>
+                    <label id="<%= i %>" class="listItem"><%= List[i] %></label><br>
+                  <% } %>
+          </div>
+        </div>
+      </div>
+
+      <form action="/myBoard" method="POST">
+          <input type="text" placeholder="Add To List" name="boardData">
+          <input type="hidden" name="Id" value=<%= data._id %>>
+    </div>
+  </div>
+  <div class="extra content">
+    <button class="ui button">Add</button>
+  </div>
+  </form>
+<% }) %>
+</div>
+
+
     <% } %>
 <% } %>
 
-<form action="/myBoard" method="POST">
-    <input type="text" placeholder="addToList" name="boardList">
-    <input type="submit" value="Add">
+
+<form action="/myNewBoard" method="POST">
+  <input type="text" placeholder="Board Title" name="ListTitle">
+  <div class="extra content">
+    <button class="ui button">New List</button>
+  </div>
 </form>
 
 <%- include ('../public/template/footer.html') %>

@@ -17,14 +17,12 @@ router.get('/', function(req, res) {
 				console.log(err)
 			} 
 			else {
-				Board.findOne({userId:req.session.userId}, function(err, board) {
-					res.render('landingPage', {User: user, board: board, Cookie: true})
-				})
+					res.render('landingPage', {User: user, Cookie: true})
 			}
 		})
 	} 
 	else {
-		res.render('landingPage', {User: false, board: false, Cookie: false})
+		res.render('landingPage', {User: false, Cookie: false})
 	}
 })
 

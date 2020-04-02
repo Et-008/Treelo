@@ -1,12 +1,16 @@
 body {
 	background-color: #DADADA;
-  }
-  body > .grid {
+  	text-align: center;
+}
+h1 {
+  text-align: center;
+}
+body > .grid {
 	height: 100%;
-  }
-  .image {
+}
+.image {
 	margin-top: -100px;
-  }
-  .column {
+}
+.column {
 	max-width: 450px;
-  }
+}
