@@ -1,0 +1,36 @@
+<%- include ('../public/template/header.html') %>
+
+<div class="right menu">
+  <% if(Cookie) { %>
+    <a class="ui item" href="/userProfile">
+    <%= User.name %>
+    </a>
+    <a class="ui item" href="/logout">
+    Logout
+    </a>
+  <% } else { %>
+    <a class="ui item" href="/login">
+    Login
+    </a>
+    <a class="ui item" href="/register">
+    Sign-up
+    </a>
+  <% } %>
+</div>
+</div>
+</div>
+
+<h1>Boards...</h1>
+<% if(userBoard) { %>
+	<% var List = userBoard.boardList %>
+    <% for(var i=0; i<List.length; i++) { %>
+    	<label id="<%= i %>" class="listItem"><%= List[i] %></label><br>
+    <% } %>
+<% } %>
+
+<form action="/myBoard" method="POST">
+    <input type="text" placeholder="addToList" name="boardList">
+    <input type="submit" value="Add">
+</form>
+
+<%- include ('../public/template/footer.html') %>

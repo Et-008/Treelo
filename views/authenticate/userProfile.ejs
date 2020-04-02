@@ -1,0 +1,34 @@
+<%- include('../../public/template/header.html') %>
+
+
+<div class="right menu">
+  <% if(Cookie) { %>
+    <a class="ui item">
+    <%= User.name %>
+    </a>
+    <a class="ui item" href="/logout">
+    Logout
+    </a>
+  <% } else { %>
+    <a class="ui item" href="/login">
+    Login
+    </a>
+    <a class="ui item" href="/register">
+    Sign-up
+    </a>
+  <% } %>
+</div>
+</div>
+</div>
+
+
+<div>
+	<h1>User Profile</h1>
+</div>
+
+<p>Name: <%= User.name %> </p>
+<p>Email Id: <%= User.email %> </p>
+<p>DOB: <%= User.DOB %> </p>
+<p>Phone no:  <%= User.phoneNo %> </p>
+
+<%- include('../../public/template/footer.html') %>

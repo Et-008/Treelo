@@ -1,0 +1,99 @@
+<%- include('../public/template/header.html') %>
+
+
+<div class="right menu">
+  <% if(Cookie) { %>
+    <a class="ui item" href="/userProfile">
+    <%= User.name %>
+    </a>
+    <a class="ui item" href="/logout">
+    Logout
+    </a>
+  <% } else { %>
+    <a class="ui item" href="/login">
+    Login
+    </a>
+    <a class="ui item" href="/register">
+    Sign-up
+    </a>
+  <% } %>
+</div>
+</div>
+</div>
+
+<div>
+	<h1>Landing Page</h1>
+</div>
+
+
+<div class="ui card">
+  <div class="content">
+    <div class="header"><input placeholder="Project Timeline"></input></div>
+  </div>
+  <div class="content">
+    <h4 class="ui sub header">Activity</h4>
+    <div class="ui small feed">
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Elliot Fu</a> added <a>Jenny Hess</a> to the project
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Stevie Feliciano</a> was added as an <a>Administrator</a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Helen Troy</a> added two pictures
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <button class="ui button">Join Project</button>
+  </div>
+</div>
+
+<div class="ui card">
+  <div class="content">
+    <div class="header"><input placeholder="Add Title"></input></div>
+  </div>
+  <div class="content">
+    <h4 class="ui sub header">Activity</h4>
+    <div class="ui small feed">
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Elliot Fu</a> added <a>Jenny Hess</a> to the project
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Stevie Feliciano</a> was added as an <a>Administrator</a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Helen Troy</a> added two pictures
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <button class="ui button">Join Project</button>
+  </div>
+</div>
+
+<%- include('../public/template/footer.html') %>

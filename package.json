@@ -1,0 +1,32 @@
+{
+  "name": "treeelo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -r dotenv/config app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Et-008/Treelo.git"
+  },
+  "author": "Arun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Et-008/Treelo/issues"
+  },
+  "homepage": "https://github.com/Et-008/Treelo#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "client-sessions": "^0.8.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
