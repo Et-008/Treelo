@@ -1,10 +1,10 @@
 var express = require('express'),
-	User = require('./models/user.js'),
-	basicRoutes = require('./routes/basicRoutes.js'),
-	board = require('./routes/board.js'),
-	userProfile = require('./routes/userProfile.js'),
-	path = require('path'),
-	app = express();
+User = require('./models/user.js'),
+basicRoutes = require('./routes/basicRoutes.js'),
+board = require('./routes/board.js'),
+userProfile = require('./routes/userProfile.js'),
+path = require('path'),
+app = express();
 
 
 app.set('view engine', 'ejs')
