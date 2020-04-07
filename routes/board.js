@@ -15,7 +15,7 @@ router.get('/myBoard', function(req,res) {
 				console.log(err);
 			}
 			else {
-				res.render('boardPage', {User: user, Cookie: true})
+				res.render('boardPage', {User: user, Cookie: true, error: false})
 			}
 		})
 	} 

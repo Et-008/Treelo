@@ -15,12 +15,12 @@ router.get('/', function(req, res) {
 		User.findOne({_id:req.session.userId}, (err, user) => {
 			if(err) {
 				console.log(err)
-			} 
+			}
 			else {
 					res.render('landingPage', {User: user, Cookie: true})
 			}
 		})
-	} 
+	}
 	else {
 		res.render('landingPage', {User: false, Cookie: false})
 	}
@@ -54,7 +54,7 @@ router.post('/login', function(req, res) {
 })
 
 router.get('/register', function(req, res) {
-	res.render('./authenticate/registerPage')
+	res.render('./authenticate/registerPage', {error: false})
 })
 
 router.post('/register', function(req, res) {
@@ -63,6 +63,9 @@ router.post('/register', function(req, res) {
 	User.create(req.body, function(err, user) {
 		if(err) {
 			console.log(err)
+			if(err.code===11000) {
+				err = "Email Id already exists"
+			}
 			res.render('./authenticate/registerPage', {error: err})
 		} else {
 			req.session.userId = user._id;

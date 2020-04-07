@@ -4,11 +4,13 @@
 </div>
 
 <h1>Login Route</h1>
-
+<% if(error){ %>
+	<p><strong><%= error %></strong><p>
+<% } %>
 <form method="POST" action="/register">
-	<input type="text" placeholder="name" name="name">
-	<input type="text" placeholder="email" name="email">
-	<input type="password" placeholder="password" name="password">
+	<input type="text" placeholder="name" name="name" required>
+	<input type="text" placeholder="email" name="email" required>
+	<input type="password" placeholder="password" name="password" required>
 	<input type="submit">
 </form>
 
