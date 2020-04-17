@@ -1,7 +1,13 @@
 var mongoose = require('mongoose'),
 Database = process.env.DATABASE;
 
-mongoose.connect(Database, {useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(Database, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, function(err, db) {
+	if (err) {
+		console.log('Unable to connect to the server. Please start the server. Error:' + err);
+	} else {
+		console.log('connected to db');
+	}
+});
 
 var userSchema = mongoose.Schema({
 	name: { type: String, required: true },
