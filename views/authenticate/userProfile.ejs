@@ -25,10 +25,26 @@
 <div>
 	<h1>User Profile</h1>
 </div>
-
-<p>Name: <%= User.name %> </p>
-<p>Email Id: <%= User.email %> </p>
-<p>DOB: <%= User.DOB %> </p>
-<p>Phone no:  <%= User.phoneNo %> </p>
+<div class="ui divider"></div>
+<div class="ui center aligned grid">
+    <div class="row">
+        <div class="five wide column">
+          <div class="ui vertical fluid menu">
+            <div class="item">
+              Name: <%= User.name %>
+            </div>
+            <div class="item">
+              Email Id: <%= User.email %>
+            </div>
+            <div class="item">
+              DOB: <%= User.DOB %>
+            </div>
+            <div class="item">
+              Phone no:  <%= User.phoneNo %>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
 
 <%- include('../../public/template/footer.html') %>

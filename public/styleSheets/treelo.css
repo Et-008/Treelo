@@ -1,9 +1,9 @@
 body {
 	background-color: #DADADA;
-  	text-align: center;
 }
 h1 {
   text-align: center;
+  padding-bottom: 10px;
 }
 body > .grid {
 	height: 100%;

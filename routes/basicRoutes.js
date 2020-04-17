@@ -47,7 +47,7 @@ router.post('/login', function(req, res) {
 			}
 
 			req.session.userId = user._id;
-			res.redirect('/');
+			res.redirect("/");
 			console.log("Login success!");
 		}
 	})

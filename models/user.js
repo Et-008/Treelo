@@ -1,5 +1,7 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/treelo', {useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true});
+var mongoose = require('mongoose'),
+Database = process.env.DATABASE;
+
+mongoose.connect(Database, {useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true});
 
 var userSchema = mongoose.Schema({
 	name: { type: String, required: true },

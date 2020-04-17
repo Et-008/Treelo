@@ -20,6 +20,8 @@
 </div>
 </div>
 
+
+<div class="ui container">
 <h1>Boards...</h1>
 <% if (error) { %>
     <p>error</p>
@@ -30,36 +32,43 @@
     <% if(board) { %>
       <div class="ui grid">
         <% board.forEach(function(data) { %>
-          <div class="ui card">
-            <div class="four wide column">
-              <div class="content">
-                <div class="center aligned header"><h4><%= data.ListTitle %></h4></div>
-                <% console.log(data.boardLists) %>
+          <div class="four wide column">
+            <div class="ui vertical fluid menu">
+                <div class="header item">
+                  <h4><%= data.ListTitle %></h4>
+                </div>
                 <% var List = data.boardLists %>
                 <% for(var i=0; i<List.length; i++) { %>
-                    <label id="<%= i %>" class="listItem"><%= List[i] %></label><br>
+                    <div class="item">
+                      <input type="checkbox" name="listItem"><label id="<%= List[i] %>"><%= List[i] %></label></input>
+                      <button class="ui right floated secondary button mini">Delete</button>
+                    </div>
                 <% } %>
-              </div>
-              <div class="extra content">
-                <form action="/myBoard" method="POST">
-                  <input type="text" placeholder="Add To List" name="boardData" required>
-                  <input type="hidden" name="Id" value=<%= data._id %>>
-                  <button class="ui button">Add</button>
-                </form>
+              <div class="row">
+                <div class="item">
+                  <form action="/myBoard" method="POST">
+                    <input type="text" placeholder="Add To List" name="boardData" required>
+                    <input type="hidden" name="Id" value=<%= data._id %>>
+                    <button class="ui secondary button mini">Add</button>
+                  </form>
+                </div>
               </div>
             </div>
-                </div>
+          </div>
               <% }) %>
             <% } %>
         <% } %>
-        <div class="four wide column">
+
+        <div class="three wide column">
           <form action="/myNewBoard" method="POST">
             <input type="text" placeholder="Board Title" name="ListTitle" required>
-            <div class="extra content">
-              <button class="ui button">New List</button>
+            <div class="item">
+              <button class="ui secondary button tiny">New List</button>
             </div>
           </form>
         </div>
+
       </div>
+</div>
 
 <%- include ('../public/template/footer.html') %>
