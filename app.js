@@ -13,7 +13,7 @@ app.use(basicRoutes)
 app.use(board)
 app.use(userProfile)
 
-app.listen(process.env.Port, function() {
+app.listen(process.env.Port, process.env.IP, function() {
 	console.log('Server has started')
 	console.log(process.env.Port)
 })
