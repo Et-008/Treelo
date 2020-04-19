@@ -15,22 +15,24 @@ router.get('/myBoard', function(req,res) {
 				console.log(err);
 			}
 			else {
-				res.render('boardPage', {User: user, Cookie: true, error: false})
+				res.render('boardPage', {User: user})
 			}
 		})
-	} 
+	}
 	else {
+		req.flash('error', 'You hav to login to do that');
 		res.redirect('/login')
 	}
 })
 
-router.post('/myNewBoard', function(req, res) {
+router.post('/myBoard/myNewList', function(req, res) {
 	if(req.body.ListTitle){
 		Board.create(req.body, function(err, board) {
 			if(err) {
 				console.log(err);
+				req.flash('error', err);
+				res.redirect('/');
 			} else {
-				console.log(board);
 				User.findOne({_id:req.session.userId}, (err, user) =>{
 					user.boards.push(board)
 					user.save(function(err){
@@ -38,6 +40,7 @@ router.post('/myNewBoard', function(req, res) {
 							console.log(err)
 						} else {
 							req.session.boardId = board._id;
+							req.flash('success', 'New list added');
 							res.redirect('/myBoard')
 						}
 					})
@@ -49,11 +52,11 @@ router.post('/myNewBoard', function(req, res) {
 	}
 })
 
-router.post('/myBoard', function(req, res) {
-	Board.findOne({_id:req.body.Id}, (err, board) => {
-		console.log(board);
+router.post('/myList/:listId/myListItem', function(req, res) {
+	Board.findOne({_id:req.params.listId}, (err, board) => {
 		if(err) {
 			console.log(err);
+			req.flash('error', err)
 			res.redirect('/myBoard', {error: err})
 		} 
 		else if(!board) {
@@ -61,6 +64,55 @@ router.post('/myBoard', function(req, res) {
 		}
 		else {
 			board.boardLists.push(req.body.boardData)
+			board.save(function(err){
+				if(err) {
+					console.log(err)
+				} else {
+					req.session.boardId = board._id;
+					res.redirect('/myBoard')	
+				}
+			})
+		}
+	})
+})
+
+router.post('/myList/:listId', function(req, res) {
+	Board.findOneAndDelete({_id: req.params.listId}, function(err) {
+		if(err) {
+			req.flash('error')
+			res.redirect('/myBoard');
+		} else {
+			User.findOne({_id: req.session.userId}, function(err, user) {
+				var boardIndex = user.boards.indexOf(req.params.listId)
+				user.boards.splice(boardIndex, 1);
+				user.save(function(err){
+					if(err) {
+						console.log(err)
+						req.flash('error', err);
+						res.redirect('/myBoard')
+					} else {
+						req.flash('success', 'List deleted');
+						res.redirect('/myBoard')
+					}
+				})				
+			})
+		}
+	})
+})
+
+router.post('/myList/:listId/myListItem/:listNum', function(req, res) {
+	Board.findOne({_id:req.params.listId}, (err, board) => {
+		if(err) {
+			console.log(err);
+			req.flash('error', err)
+			res.redirect('/myBoard', {error: err})
+		}
+		else if(!board) {
+			req.flash('error', 'No board found')
+			res.redirect('/myBoard')
+		}
+		else {
+			board.boardLists.splice(req.params.listNum, 1)
 			board.save(function(err){
 				if(err) {
 					console.log(err)

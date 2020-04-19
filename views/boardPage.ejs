@@ -1,54 +1,34 @@
-<%- include ('../public/template/header.html') %>
-
-<div class="right menu">
-  <% if(Cookie) { %>
-    <a class="ui item" href="/userProfile">
-    <%= User.name %>
-    </a>
-    <a class="ui item" href="/logout">
-    Logout
-    </a>
-  <% } else { %>
-    <a class="ui item" href="/login">
-    Login
-    </a>
-    <a class="ui item" href="/register">
-    Sign-up
-    </a>
-  <% } %>
-</div>
-</div>
-</div>
-
+<%- include ('./template/header') %>
 
 <div class="ui container">
 <h1>Boards...</h1>
-<% if (error) { %>
-    <p>error</p>
-<% } %>
     
 <% if(User) { %>
     <% var board = User.boards %>
     <% if(board) { %>
-      <div class="ui grid">
+      <div class="ui grid mobile computer tablet only">
         <% board.forEach(function(data) { %>
           <div class="four wide column">
             <div class="ui vertical fluid menu">
-                <div class="header item">
+                <div class="header item text container">
                   <h4><%= data.ListTitle %></h4>
+                  <form action="/myList/<%= data._id %>" method="POST">
+                    <i onclick="submit()" class="window close red link icon"></i>
+                  </form>
                 </div>
                 <% var List = data.boardLists %>
                 <% for(var i=0; i<List.length; i++) { %>
                     <div class="item">
-                      <input type="checkbox" name="listItem"><label id="<%= List[i] %>"><%= List[i] %></label></input>
-                      <button class="ui right floated secondary button mini">Delete</button>
+                      <span><%= List[i] %></span>
+                      <form action="/myList/<%= data._id %>/myListItem/<%= i %>" method="POST">
+                        <button class="ui right floated secondary button mini">Done</button>
+                      </form>
                     </div>
                 <% } %>
               <div class="row">
                 <div class="item">
-                  <form action="/myBoard" method="POST">
+                  <form action="/myList/<%= data._id %>/myListItem" method="POST">
                     <input type="text" placeholder="Add To List" name="boardData" required>
-                    <input type="hidden" name="Id" value=<%= data._id %>>
                     <button class="ui secondary button mini">Add</button>
                   </form>
                 </div>
@@ -60,7 +40,7 @@
         <% } %>
 
         <div class="three wide column">
-          <form action="/myNewBoard" method="POST">
+          <form action="/myBoard/myNewList" method="POST">
             <input type="text" placeholder="Board Title" name="ListTitle" required>
             <div class="item">
               <button class="ui secondary button tiny">New List</button>
@@ -71,4 +51,4 @@
       </div>
 </div>
 
-<%- include ('../public/template/footer.html') %>
+<%- include ('./template/footer.html') %>

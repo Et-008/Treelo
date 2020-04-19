@@ -1,9 +1,16 @@
 body {
 	background-color: #DADADA;
+	margin: 0 auto
+}
+#nav-bar {
+	padding-left: 50px;
 }
 h1 {
   text-align: center;
   padding-bottom: 10px;
+}
+#mainHeader {
+	padding-top: 40vh;
 }
 body > .grid {
 	height: 100%;
@@ -13,4 +20,15 @@ body > .grid {
 }
 .column {
 	max-width: 450px;
+}
+.ui {
+  display: block;
+  float: none;
+  width: auto;
+}
+img {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
 }

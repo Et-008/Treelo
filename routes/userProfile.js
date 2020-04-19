@@ -11,8 +11,10 @@ router.get('/userProfile', function(req,res) {
 		User.findOne({_id:req.session.userId}, (err, user) =>{
 			if(err) {
 				console.log(err)
+				req.flash('error', err)
+				res.redirect('/')
 			} else {
-				res.render('./authenticate/userProfile', {User: user, Cookie: true})
+				res.render('./authenticate/userProfile', {User: user})
 			}
 		})
 	}

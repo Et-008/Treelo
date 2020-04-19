@@ -1,72 +1,31 @@
-<%- include('../../public/template/header.html') %>
+<%- include('../template/header') %>
 
-</div>
-</div>
-</div>
-<% if(error) { %>
-  <p>error</p>
-<% } %>
+<div class="ui grid">
+  <div class="ui two column grid">
+      <h2 class="ui black image header">
+        <div class="content">
+          Log-in to your account
+        </div>
+      </h2>
 
-<div class="column">
-  <h2 class="ui teal image header">
-    <div class="content">
-      Log-in to your account
-    </div>
-  </h2>
-</div>
-<form method="POST" action="/login">
-  <div class="ui stacked segment">
-    <div class="field error">
-      <div class="ui left icon input">
-        <i class="user icon"></i>
-        <input type="text" name="email" placeholder="E-mail address" required>
-      </div>
-    </div>
-    <div class="field error">
-      <div class="ui left icon input">
-        <i class="lock icon"></i>
-        <input type="password" name="password" placeholder="Password" required>
-      </div>
-    </div>
-    <div class="ui large teal"><button>Login</button>
-    </div>
-  </div>
-
-</form>
-
-
-<!-- <div class="ui middle aligned center aligned grid">
-  <div class="column">
-    <h2 class="ui teal image header">
-      <div class="content">
-        Log-in to your account
-      </div>
-    </h2>
-    <form class="ui large form error">
-      <div class="ui stacked segment">
-        <div class="field error">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+      <form class="ui form"  method="POST" action="/login">
+        <div class="field">
+          <label>Email ID</label>
+          <input type="text" name="email" placeholder="E-mail address" required>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" class="hidden">
+            <label>Stay Signed In</label>
           </div>
         </div>
-        <div class="field error">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
-          </div>
-        </div>
-        <div class="ui fluid large teal submit button">Login</div>
-      </div>
-
-      <div class="ui error message"><ul class="list"><li>Please enter your e-mail</li><li>Please enter a valid e-mail</li><li>Please enter your password</li><li>Your password must be at least 6 characters</li></ul></div>
-
-    </form>
-
-    <div class="ui message">
-      New to us? <a href="#">Sign Up</a>
+        <button class="ui button" type="submit">Submit</button>
+      </form>
     </div>
-  </div>
-</div> -->
+</div>
 
-<%- include('../../public/template/footer.html') %>
+<%- include('../template/footer.html') %>

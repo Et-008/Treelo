@@ -1,33 +1,10 @@
-<%- include('../../public/template/header.html') %>
+<%- include('../template/header') %>
 
-
-<div class="right menu">
-  <% if(Cookie) { %>
-    <a class="ui item">
-    <%= User.name %>
-    </a>
-    <a class="ui item" href="/logout">
-    Logout
-    </a>
-  <% } else { %>
-    <a class="ui item" href="/login">
-    Login
-    </a>
-    <a class="ui item" href="/register">
-    Sign-up
-    </a>
-  <% } %>
-</div>
-</div>
-</div>
-
-
-<div>
+<div class="text container">
 	<h1>User Profile</h1>
-</div>
-<div class="ui divider"></div>
-<div class="ui center aligned grid">
-    <div class="row">
+  <div class="ui divider"></div>
+  <div class="ui center aligned grid">
+      <div class="row">
         <div class="five wide column">
           <div class="ui vertical fluid menu">
             <div class="item">
@@ -44,7 +21,8 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
+  </div>
 </div>
 
-<%- include('../../public/template/footer.html') %>
+<%- include('../template/footer.html') %>
