@@ -29,7 +29,7 @@
 }
 
 #colorDisplay {
-	font-size: 200%;
+	font-size: 150%;
 }
 
 #message {
@@ -39,7 +39,7 @@
 
 #stripe {
 	background: white;
-	height: 30px;
+	height: 100%;
 	text-align: center;
 	color: black;
 }

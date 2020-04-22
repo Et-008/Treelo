@@ -6,7 +6,7 @@
 <% if(User) { %>
     <% var board = User.boards %>
     <% if(board) { %>
-      <div class="ui grid mobile computer tablet only">
+      <div class="ui stackable grid">
         <% board.forEach(function(data) { %>
           <div class="four wide column">
             <div class="ui vertical fluid menu">
