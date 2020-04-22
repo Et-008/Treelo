@@ -19,7 +19,7 @@
                 <% var List = data.boardLists %>
                 <% for(var i=0; i<List.length; i++) { %>
                     <div class="item">
-                      <span><%= List[i] %></span>
+                      <text><%= List[i] %></text>
                       <form action="/myList/<%= data._id %>/myListItem/<%= i %>" method="POST">
                         <button class="ui right floated secondary button mini">Done</button>
                       </form>
