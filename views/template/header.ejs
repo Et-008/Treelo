@@ -19,6 +19,8 @@
 
 	<link rel="stylesheet" type="text/css" href="/styleSheets/treelo.css">
 
+	<link rel="stylesheet" type="text/css" href="/styleSheets/colorGame.css">
+
 </head>
 <body>
 	<div class="ui inverted segment">
@@ -30,8 +32,8 @@
 		    <a class="item" href="/myBoard">
 		      Board
 		    </a>
-		    <a class="item">
-		      Friends
+		    <a id="gamePage" class="item" href="/myGames">
+		      Games
 		    </a>
 		    
 			<div class="right menu">
@@ -55,9 +57,9 @@
 		</div>
 	</div>
 	
-<div><img src="https://i.pinimg.com/originals/3d/bc/4e/3dbc4edbefcd20cf83f9a37401e50a8f.jpg"></div>
+<div><img id="backGroundImage" src="https://i.pinimg.com/originals/3d/bc/4e/3dbc4edbefcd20cf83f9a37401e50a8f.jpg"></div>
 
-<div id="message" class="text center aligned container">
+<div id="flashMessage" class="text center aligned container">
 	<% if(error && error.length>0) { %>
 		<p class="ui brown message"><%= error %></p>
 	<% } %>

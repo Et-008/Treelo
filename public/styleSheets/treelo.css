@@ -1,6 +1,7 @@
 body {
 	background-color: #DADADA;
-	margin: 0 auto
+	margin: 0 auto;
+  max-width: 100%;
 }
 #nav-bar {
 	padding-left: 50px;
@@ -27,8 +28,29 @@ body > .grid {
   width: auto;
 }
 img {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  left: 0px;
-  top: 0px;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 1;
   z-index: -1;
+}
+#flashMessage p {
+  margin: 0 auto;
+  width: 80%;
+  animation: imageAnimation 5s linear;
+}
+
+@keyframes imageAnimation { 
+  0%, 100% { 
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
 }
