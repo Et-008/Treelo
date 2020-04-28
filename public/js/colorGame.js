@@ -40,9 +40,10 @@ function setupSquares(){
 				messageDisplay.textContent = "Correct!";
 				resetButton.textContent = "Play Again?";
 				changeColors(clickedColor);
+				h1.style.color = "white";
 				h1.style.background = clickedColor;
 			} else {
-				this.style.background = "#232323";
+				this.style.background = "none";
 				messageDisplay.textContent = "Try Again"
 			}
 		});
@@ -68,7 +69,8 @@ function reset(){
 			squares[i].style.display = "none";
 		}
 	}
-	h1.style.background = "#1B1C1D";
+	h1.style.color = "black";
+	h1.style.background = "none";
 }
 
 resetButton.addEventListener("click", function(){

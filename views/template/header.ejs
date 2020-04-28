@@ -23,10 +23,11 @@
 
 </head>
 <body>
+
 	<div class="ui inverted segment">
 	  	<div class="ui inverted secondary menu">
 	  		<a id="nav-bar" href="#"></a>
-		    <a class="active item" href="/">
+		    <a class="item" href="/">
 		      Home
 		    </a>
 		    <a class="item" href="/myBoard">
@@ -38,17 +39,17 @@
 		    
 			<div class="right menu">
 			  <% if(Cookie) { %>
-			    <a class="ui item" href="/userProfile">
+			    <a class="item" href="/userProfile">
 			    <%= User.name %>
 			    </a>
-			    <a class="ui item" href="/logout">
+			    <a class="item" href="/logout">
 			    Logout
 			    </a>
 			  <% } else { %>
-			    <a class="ui item" href="/login">
+			    <a class="item" href="/login">
 			    Login
 			    </a>
-			    <a class="ui item" href="/register">
+			    <a class="item" href="/register">
 			    Sign-up
 			    </a>
 			  <% } %>
@@ -57,7 +58,7 @@
 		</div>
 	</div>
 	
-<div><img id="backGroundImage" src="https://i.pinimg.com/originals/3d/bc/4e/3dbc4edbefcd20cf83f9a37401e50a8f.jpg"></div>
+<div><img id="backGroundImage" class="fluid" src="https://i.pinimg.com/originals/3d/bc/4e/3dbc4edbefcd20cf83f9a37401e50a8f.jpg"></div>
 
 <div id="flashMessage" class="text center aligned container">
 	<% if(error && error.length>0) { %>

@@ -9,6 +9,7 @@ var express = require('express'),
 router.use(bodyParser.urlencoded({extended: true}))
 
 router.get('/myGames', function(req,res) {
+	activePageNo = 2;
 	if(req.session.userId) {
 		User.findOne({_id:req.session.userId}).populate("boards").exec((err, user) =>{
 			if(err) {

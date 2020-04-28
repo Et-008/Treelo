@@ -48,7 +48,7 @@ router.post('/login', function(req, res) {
 			err = "Mail id/password is incorrect!";
 			console.log("Mail id is incorrect!")
 			req.flash('error', err)
-			return res.render('./authenticate/loginPage', {error: err})
+			return res.render('./authenticate/loginPage')
 		}
 		else {
 			//comparing the password in DB and the entered password and storing in a variable
@@ -59,7 +59,7 @@ router.post('/login', function(req, res) {
 				err = "Mail id/password is incorrect!"
 				console.log("Password is incorrect!")
 				req.flash('error', err)
-				return res.render('./authenticate/loginPage', {error: err})
+				return res.render('./authenticate/loginPage')
 			}
 
 			req.session.userId = user._id;
@@ -71,7 +71,7 @@ router.post('/login', function(req, res) {
 })
 
 router.get('/register', function(req, res) {
-	res.render('./authenticate/registerPage', {error: false})
+	res.render('./authenticate/registerPage')
 })
 
 router.post('/register', function(req, res) {
@@ -84,7 +84,7 @@ router.post('/register', function(req, res) {
 				err = "Email Id already exists"
 			}
 			req.flash('error', err)
-			res.render('./authenticate/registerPage', {error: err})
+			res.render('./authenticate/registerPage')
 		} else {
 			req.session.userId = user._id;
 			req.flash('success', 'Registered successfully!')
