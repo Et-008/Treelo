@@ -16,7 +16,7 @@ router.get('/myGames', function(req,res) {
 				console.log(err);
 			}
 			else {
-				res.render('colorGame', {User: user})
+				res.render('Game', {User: user})
 			}
 		})
 	}

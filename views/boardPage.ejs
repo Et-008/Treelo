@@ -8,30 +8,28 @@
     <% if(board) { %>
       <div class="ui stackable grid">
         <% board.forEach(function(data) { %>
-          <div class="four wide column">
+          <div class="five wide column">
             <div class="ui vertical fluid menu">
-                <div class="header item text container">
+                <div class="header item">
                   <h4><%= data.ListTitle %></h4>
-                  <form action="/myList/<%= data._id %>" method="POST">
-                    <i onclick="submit()" class="window close red link icon"></i>
-                  </form>
+                  <i id="closeList" class="window close red link icon large"></i>
+                  <form id="deleteList" action="/myList/<%= data._id %>" method="POST"></form>
                 </div>
                 <% var List = data.boardLists %>
                 <% for(var i=0; i<List.length; i++) { %>
                     <div class="item">
                       <text><%= List[i] %></text>
-                      <form action="/myList/<%= data._id %>/myListItem/<%= i %>" method="POST">
-                        <button class="ui right floated secondary button mini">Done</button>
-                      </form>
+                      <i id="closeListItem" class="trash alternate outline icon"></i>
+                      <form id="deleteListItem" action="/myList/<%= data._id %>/myListItem/<%= i %>" method="POST"></form>
                     </div>
                 <% } %>
               <div class="row">
-                <div class="item">
-                  <form action="/myList/<%= data._id %>/myListItem" method="POST">
+                <form action="/myList/<%= data._id %>/myListItem" method="POST">
+                  <div class="ui fluid action mini input">
                     <input type="text" placeholder="Add To List" name="boardData" required>
                     <button class="ui secondary button mini">Add</button>
-                  </form>
-                </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -39,11 +37,11 @@
             <% } %>
         <% } %>
 
-        <div class="three wide column">
+        <div class="five wide column">
           <form action="/myBoard/myNewList" method="POST">
-            <input type="text" placeholder="Board Title" name="ListTitle" required>
-            <div class="item">
-              <button class="ui secondary button tiny">New List</button>
+            <div class="ui action mini input">
+              <input type="text" placeholder="Board Title" name="ListTitle" required>
+              <button class="ui secondary button mini">New List</button>
             </div>
           </form>
         </div>

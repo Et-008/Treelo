@@ -17,9 +17,15 @@
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
 
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.25/paper-full.js"></script>
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="/styleSheets/treelo.css">
 
 	<link rel="stylesheet" type="text/css" href="/styleSheets/colorGame.css">
+
+	<link rel="stylesheet" type="text/css" href="/stylesheets/patatap.css">
 
 </head>
 <body>
@@ -27,29 +33,29 @@
 	<div class="ui inverted segment">
 	  	<div class="ui inverted secondary menu">
 	  		<a id="nav-bar" href="#"></a>
-		    <a class="item" href="/">
+		    <a class="item" href="/"><i class="home icon"></i>
 		      Home
 		    </a>
-		    <a class="item" href="/myBoard">
+		    <a class="item" href="/myBoard"><i class="clipboard list icon"></i>
 		      Board
 		    </a>
-		    <a id="gamePage" class="item" href="/myGames">
+		    <a id="gamePage" class="item" href="/myGames"><i class="xbox icon"></i>
 		      Games
 		    </a>
 		    
 			<div class="right menu">
 			  <% if(Cookie) { %>
-			    <a class="item" href="/userProfile">
+			    <a class="item" href="/userProfile"><i class="user circle icon"></i>
 			    <%= User.name %>
 			    </a>
-			    <a class="item" href="/logout">
+			    <a class="item" href="/logout"><i class="sign-out icon"></i>
 			    Logout
 			    </a>
 			  <% } else { %>
-			    <a class="item" href="/login">
+			    <a class="item" href="/login"><i class="sign-in icon"></i>
 			    Login
 			    </a>
-			    <a class="item" href="/register">
+			    <a class="item" href="/register"><i class="user plus icon"></i>
 			    Sign-up
 			    </a>
 			  <% } %>
@@ -58,7 +64,7 @@
 		</div>
 	</div>
 	
-<div><img id="backGroundImage" class="fluid" src="https://i.pinimg.com/originals/3d/bc/4e/3dbc4edbefcd20cf83f9a37401e50a8f.jpg"></div>
+<!-- <div><img id="backGroundImage" class="fluid" src="https://i.pinimg.com/originals/3d/bc/4e/3dbc4edbefcd20cf83f9a37401e50a8f.jpg"></div> -->
 
 <div id="flashMessage" class="text center aligned container">
 	<% if(error && error.length>0) { %>

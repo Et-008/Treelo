@@ -1,0 +1,55 @@
+<%- include ('./template/header') %>
+
+    <div class="ui internally stackable grid">
+
+		<div class="one wide stackable column">
+
+			<div class="ui container gamePage">
+
+				<button class="games color" href="#"><i class="chess board large icon"></i><span class="hide">Colour Game<span></button>
+				<button class="games sound" href="#"><i class="headphones large icon"></i><span class="hide">Sound Game</span></button>
+
+			</div>
+		</div>
+
+		<div class="fifteen wide column">
+
+			<div id="colorGame" class="hide">
+					<h1>
+						Guess the color
+						<br>
+						<span id="colorDisplay">RGB</span> 
+					</h1>
+
+					<div id="stripe">
+						<button id="reset">New Colors</button>
+						<span id="message"></span>
+						<button class="mode">Easy</button>
+						<button class="mode selected">Hard</button>
+					</div>
+
+				<div id="container" class="ui grid">
+					<div class="doubling three column row">
+						<div class="square"></div>
+						<div class="square"></div>
+						<div class="square"></div>
+						<div class="square"></div>
+						<div class="square"></div>
+						<div class="square"></div>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div id="soundGame" class="hide">
+				<p>Press any key from A to Z</p>
+				<canvas id="myCanvas" resize></canvas>
+			</div>
+
+		</div>
+
+	</div>
+
+
+<%- include ('./template/footer.html') %>
