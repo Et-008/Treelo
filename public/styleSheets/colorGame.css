@@ -11,8 +11,9 @@
 }
 
 #colorGame {
+	margin: 0 auto;
 	padding-top: 50px;
-	max-width: 30%;
+	max-width: 500px;
 }
 
 #container {
@@ -20,7 +21,7 @@
 	max-width: 100%;
 }
 
-#game h1 {
+#colorGame h1 {
 	line-height: 1.0;
 	font-weight: normal;
 	color: black;

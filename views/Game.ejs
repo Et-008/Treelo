@@ -2,17 +2,17 @@
 
     <div class="ui internally stackable grid">
 
-		<div class="one wide stackable column">
+		<div id="gameButtons" class="three wide column">
 
 			<div class="ui container gamePage">
 
-				<button class="games color" href="#"><i class="chess board large icon"></i><span class="hide">Colour Game<span></button>
-				<button class="games sound" href="#"><i class="headphones large icon"></i><span class="hide">Sound Game</span></button>
+				<button class="games color" href="#"><i class="chess board large icon" title="Colour Game"></i><span >Colour Game</span></button>
+				<button class="games sound" href="#"><i class="headphones large icon" title="Sound Game"></i><span >Sound Game</span></button>
 
 			</div>
 		</div>
 
-		<div class="fifteen wide column">
+		<div id="gameArea" class="thirteen wide stackable column">
 
 			<div id="colorGame" class="hide">
 					<h1>
@@ -43,7 +43,7 @@
 
 
 			<div id="soundGame" class="hide">
-				<p>Press any key from A to Z</p>
+				<h3>Press any key from A to Z</h3>
 				<canvas id="myCanvas" resize></canvas>
 			</div>
 
