@@ -56,6 +56,7 @@ img {
     animation-timing-function: ease-in;
   }
 }
+
 .gamePage {
   padding-top: 5vh;
   margin: 0 auto;
@@ -82,3 +83,18 @@ img {
 .hide {
   display: none;
 }
+
+
+
+#con {
+  width: 400px;
+  height: 300px;
+  border: 2px solid lightgray;
+}
+#item {
+  width: 100px;
+  height: 40px;
+  cursor: grab;
+  position: absolute;
+}
+

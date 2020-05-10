@@ -17,10 +17,12 @@
                 </div>
                 <% var List = data.boardLists %>
                 <% for(var i=0; i<List.length; i++) { %>
-                    <div class="item">
-                      <text><%= List[i] %></text>
-                      <i id="closeListItem" class="trash alternate outline icon"></i>
-                      <form id="deleteListItem" action="/myList/<%= data._id %>/myListItem/<%= i %>" method="POST"></form>
+                    <div>
+                      <div class="item">
+                        <text><%= List[i] %></text>
+                        <i id="closeListItem" class="trash alternate outline icon large"></i>
+                        <form id="deleteListItem" action="/myList/<%= data._id %>/myListItem/<%= i %>" method="POST"></form>
+                      </div>
                     </div>
                 <% } %>
               <div class="row">
@@ -41,12 +43,14 @@
           <form action="/myBoard/myNewList" method="POST">
             <div class="ui action mini input">
               <input type="text" placeholder="Board Title" name="ListTitle" required>
-              <button class="ui secondary button mini">New List</button>
+              <button class="ui secondary button mini"><i class="plus icon"></i>New List</button>
             </div>
           </form>
         </div>
 
       </div>
 </div>
+
+<text id="item">hello</text>
 
 <%- include ('./template/footer.html') %>
