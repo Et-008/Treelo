@@ -101,6 +101,7 @@ router.post('/myList/:listId', function(req, res) {
 })
 
 router.post('/myList/:listId/myListItem/:listNum', function(req, res) {
+	console.log(req.params)
 	Board.findOne({_id:req.params.listId}, (err, board) => {
 		if(err) {
 			console.log(err);
@@ -118,7 +119,7 @@ router.post('/myList/:listId/myListItem/:listNum', function(req, res) {
 					console.log(err)
 				} else {
 					req.session.boardId = board._id;
-					res.redirect('/myBoard')	
+					res.redirect('/myBoard')
 				}
 			})
 		}

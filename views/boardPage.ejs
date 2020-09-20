@@ -5,25 +5,25 @@
     
 <% if(User) { %>
     <% var board = User.boards %>
-    <% if(board) { %>
+    <% if(User.boards) { %>
       <div class="ui stackable grid">
         <% board.forEach(function(data) { %>
           <div class="five wide column">
             <div class="ui vertical fluid menu">
                 <div class="header item">
                   <h4><%= data.ListTitle %></h4>
-                  <i id="closeList" class="window close red link icon large"></i>
-                  <form id="deleteList" action="/myList/<%= data._id %>" method="POST"></form>
+                  <form action="/myList/<%= data._id %>" method="POST">
+                    <i class="window close red link icon large" onclick=submit()></i>
+                  </form>
                 </div>
                 <% var List = data.boardLists %>
                 <% for(var i=0; i<List.length; i++) { %>
-                    <div>
                       <div class="item">
                         <text><%= List[i] %></text>
-                        <i id="closeListItem" class="trash alternate outline icon large"></i>
-                        <form id="deleteListItem" action="/myList/<%= data._id %>/myListItem/<%= i %>" method="POST"></form>
+                        <form action="/myList/<%= data._id %>/myListItem/<%= i %>" method="POST">
+                          <i class="trash alternate outline icon large" onclick=submit()></i>
+                        </form>
                       </div>
-                    </div>
                 <% } %>
               <div class="row">
                 <form action="/myList/<%= data._id %>/myListItem" method="POST">
@@ -51,6 +51,5 @@
       </div>
 </div>
 
-<text id="item">hello</text>
 
 <%- include ('./template/footer.html') %>

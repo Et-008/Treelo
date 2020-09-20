@@ -18,17 +18,14 @@ h1 {
 body > .grid {
 	height: 100%;
 }
-
 h4 {
   display: inline-block;
   height: 100%; 
 }
-
 .completed {
   color: gray;
   text-decoration: line-through;
 }
-
 img {
   width: 100%;
   height: 100%;
@@ -44,9 +41,8 @@ img {
 #flashMessage p {
   margin: 0 auto;
   width: 80%;
-  animation: imageAnimation 5s linear;
+  animation: imageAnimation 3s linear;
 }
-
 @keyframes imageAnimation { 
   0%, 100% { 
     opacity: 0;
@@ -56,7 +52,6 @@ img {
     animation-timing-function: ease-in;
   }
 }
-
 .gamePage {
   padding-top: 5vh;
   margin: 0 auto;
@@ -83,18 +78,13 @@ img {
 .hide {
   display: none;
 }
-
-
-
 #con {
   width: 400px;
   height: 300px;
   border: 2px solid lightgray;
 }
-#item {
-  width: 100px;
-  height: 40px;
-  cursor: grab;
-  position: absolute;
+.item form{
+  display: inline;
+  float: right;
+  cursor: pointer;
 }
-
